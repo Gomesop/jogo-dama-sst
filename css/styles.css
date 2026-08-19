@@ -1,0 +1,928 @@
+/* ==========================================================================
+   DAMA SST - ESTILOS E ANIMAÇÕES RICAS DE SEGURANÇA VS RISCOS
+   ========================================================================== */
+
+:root {
+    /* Cores do Tema SST (Prevencionistas - Jogador) */
+    --sst-primary: #10b981;
+    --sst-primary-hover: #059669;
+    --sst-glow: rgba(16, 185, 129, 0.4);
+    --sst-bg-subtle: rgba(16, 185, 129, 0.12);
+    --sst-border: rgba(16, 185, 129, 0.3);
+
+    /* Cores do Tema Riscos (Máquina - IA) */
+    --risk-primary: #ef4444;
+    --risk-primary-hover: #dc2626;
+    --risk-glow: rgba(239, 68, 68, 0.4);
+    --risk-bg-subtle: rgba(239, 68, 68, 0.12);
+    --risk-border: rgba(239, 68, 68, 0.3);
+
+    /* Cores Neutras & Glassmorphism */
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.75);
+    --bg-card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-gold: #fbbf24;
+
+    /* Cores do Tabuleiro */
+    --board-light: #e2e8f0;
+    --board-dark: #334155;
+    --board-border: #1e293b;
+    --board-highlight: rgba(16, 185, 129, 0.5);
+    --board-capture: rgba(239, 68, 68, 0.6);
+
+    /* Fontes */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: var(--font-body);
+    background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100vw;
+    max-width: 1440px;
+    height: 100vh;
+    max-height: 950px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.game-header {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 16px;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    background: var(--sst-bg-subtle);
+    border: 1px solid var(--sst-border);
+    padding: 0.4rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px var(--sst-glow);
+}
+
+.brand h1 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.accent-sst {
+    color: var(--sst-primary);
+    text-shadow: 0 0 10px var(--sst-glow);
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.difficulty-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.custom-select {
+    background: #1e293b;
+    color: var(--text-main);
+    border: 1px solid var(--bg-card-border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.custom-select:hover {
+    border-color: var(--sst-primary);
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--sst-primary), #059669);
+    color: #fff;
+    box-shadow: 0 4px 12px var(--sst-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--sst-glow);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    border: 1px solid var(--bg-card-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-main);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL
+   ========================================================================== */
+
+.main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 1.25rem;
+    align-items: stretch;
+    min-height: 0;
+}
+
+/* Painéis Laterais */
+.side-panel {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+.panel-header {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.panel-header.sst-theme .badge {
+    background: var(--sst-bg-subtle);
+    color: var(--sst-primary);
+    border: 1px solid var(--sst-border);
+}
+
+.badge.danger {
+    background: var(--risk-bg-subtle);
+    color: var(--risk-primary);
+    border: 1px solid var(--risk-border);
+}
+
+.panel-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.panel-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Cards de Estatísticas */
+.stats-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.player-panel .stat-value {
+    color: var(--sst-primary);
+}
+
+.machine-panel .stat-value {
+    color: var(--risk-primary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Roster / Lista de Peças */
+.roster-preview h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.roster-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+}
+
+.roster-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot.sst {
+    background: var(--sst-primary);
+    box-shadow: 0 0 6px var(--sst-primary);
+}
+
+.dot.risk {
+    background: var(--risk-primary);
+    box-shadow: 0 0 6px var(--risk-primary);
+}
+
+/* ==========================================================================
+   ÁREA CENTRAL E TABULEIRO
+   ========================================================================== */
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.turn-banner {
+    width: 100%;
+    max-width: 560px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s;
+}
+
+.turn-banner.sst-turn {
+    background: var(--sst-bg-subtle);
+    border: 1px solid var(--sst-border);
+    color: #34d399;
+}
+
+.turn-banner.risk-turn {
+    background: var(--risk-bg-subtle);
+    border: 1px solid var(--risk-border);
+    color: #f87171;
+}
+
+.turn-indicator-pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: pulseRing 1.5s infinite;
+}
+
+.sst-turn .turn-indicator-pulse {
+    background: var(--sst-primary);
+    box-shadow: 0 0 10px var(--sst-primary);
+}
+
+.risk-turn .turn-indicator-pulse {
+    background: var(--risk-primary);
+    box-shadow: 0 0 10px var(--risk-primary);
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* O Tabuleiro */
+.board-wrapper {
+    position: relative;
+    padding: 12px;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: clamp(340px, 50vh, 520px);
+    height: clamp(340px, 50vh, 520px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #020617;
+}
+
+.square {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.square.light {
+    background-color: var(--board-light);
+}
+
+.square.dark {
+    background-color: var(--board-dark);
+}
+
+/* Quadrado selecionado / Destacado para mover */
+.square.selected {
+    background-color: #0284c7 !important;
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.square.valid-move::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sst-primary);
+    box-shadow: 0 0 12px var(--sst-primary);
+    animation: moveHintPulse 1.2s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.square.valid-capture::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid var(--risk-primary);
+    box-shadow: 0 0 15px var(--risk-primary);
+    animation: captureHintPulse 1s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes moveHintPulse {
+    0%, 100% { transform: scale(0.85); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes captureHintPulse {
+    0%, 100% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Bar de Informação da Peça & Histórias Cruzadas de Campo */
+.piece-info-bar {
+    width: 100%;
+    max-width: 680px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    text-align: left;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+.story-banner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+}
+
+.story-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: var(--sst-bg-subtle);
+    color: var(--sst-primary);
+    border: 1px solid var(--sst-border);
+    letter-spacing: 0.5px;
+}
+
+.story-badge.danger {
+    background: var(--risk-bg-subtle);
+    color: var(--risk-primary);
+    border: 1px solid var(--risk-border);
+}
+
+.story-text {
+    line-height: 1.45;
+    color: #f1f5f9;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO E ANIMAÇÕES DAS PEÇAS (SVG / CSS)
+   ========================================================================== */
+
+.piece {
+    width: 82%;
+    height: 82%;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+}
+
+.piece:hover {
+    transform: scale(1.12);
+    z-index: 20;
+}
+
+/* Peças do Jogador (SST) */
+.piece.sst-piece {
+    background: radial-gradient(circle at 35% 35%, #34d399 0%, #059669 70%, #064e3b 100%);
+    border: 2px solid #a7f3d0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 12px var(--sst-glow);
+}
+
+/* Peças da Máquina (Riscos) */
+.piece.risk-piece {
+    background: radial-gradient(circle at 35% 35%, #f87171 0%, #dc2626 70%, #7f1d1d 100%);
+    border: 2px solid #fca5a5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 12px var(--risk-glow);
+}
+
+/* Dama / King (Super Prevencionista / Risco Crítico) */
+.piece.king {
+    border-width: 3px;
+}
+
+.piece.sst-piece.king {
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: goldAuraPulse 2s infinite ease-in-out;
+}
+
+.piece.risk-piece.king {
+    border-color: #93c5fd;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.9), 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: redAuraPulse 2s infinite ease-in-out;
+}
+
+@keyframes goldAuraPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.6); }
+    50% { box-shadow: 0 0 28px rgba(251, 191, 36, 1); }
+}
+
+@keyframes redAuraPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+    50% { box-shadow: 0 0 28px rgba(239, 68, 68, 1); }
+}
+
+/* Coroa da Dama */
+.king-crown {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    animation: crownFloat 2s infinite ease-in-out;
+    z-index: 15;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0) rotate(5deg); }
+    50% { transform: translateY(-4px) rotate(-5deg); }
+}
+
+/* SVG avatar dentro da peça */
+.piece-svg-container {
+    width: 75%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piece-svg-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ANIMAÇÕES INTERNAS DE ELEMENTOS SVG */
+/* 1. Fogo Flickering */
+.anim-flame {
+    transform-origin: bottom center;
+    animation: flameFlicker 0.6s infinite alternate ease-in-out;
+}
+@keyframes flameFlicker {
+    0% { transform: scale(0.95) rotate(-2deg); opacity: 0.85; }
+    100% { transform: scale(1.08) rotate(3deg); opacity: 1; }
+}
+
+/* 2. Spark Eletricidade */
+.anim-spark {
+    animation: sparkPulse 0.4s infinite alternate;
+}
+@keyframes sparkPulse {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* 3. Pulso ECG Enfermeira */
+.anim-ecg {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: ecgDash 1.4s infinite linear;
+}
+@keyframes ecgDash {
+    0% { stroke-dashoffset: 40; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* 4. Eco Folha Shimmer */
+.anim-eco {
+    transform-origin: center;
+    animation: leafRotate 3s infinite ease-in-out;
+}
+@keyframes leafRotate {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* 5. CIPA Badge Pulse */
+.anim-cipa {
+    animation: cipaGlow 1.8s infinite alternate ease-in-out;
+}
+@keyframes cipaGlow {
+    0% { filter: drop-shadow(0 0 2px #fff); }
+    100% { filter: drop-shadow(0 0 6px #10b981); }
+}
+
+/* Efeito de Captura (Explosão) */
+.piece-captured-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, #f87171 0%, transparent 70%);
+    animation: popEffect 0.4s forwards ease-out;
+    z-index: 30;
+}
+@keyframes popEffect {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ==========================================================================
+   MODAIS (CODEX & GAMEOVER)
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: var(--text-main);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.modal-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+}
+
+.modal-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Conteúdo do Codex */
+.codex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.codex-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.codex-column.sst h3 { color: var(--sst-primary); }
+.codex-column.risk h3 { color: var(--risk-primary); }
+
+.codex-item {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.codex-item-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.codex-item p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.codex-tip {
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+/* Modal Game Over */
+.text-center { text-align: center; }
+
+.big-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.summary-box {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.summary-box span {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--sst-primary);
+}
+
+.summary-box small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.btn-large {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+    .side-panel {
+        max-height: 200px;
+    }
+    .roster-preview { display: none; }
+    .board {
+        width: min(85vw, 420px);
+        height: min(85vw, 420px);
+    }
+}
+
+/* ==========================================================================
+   CELULAR — o tabuleiro é o jogo: ele vem primeiro e cabe na primeira tela
+   ========================================================================== */
+@media (max-width: 680px) {
+    .app-container { padding: 8px; gap: 8px; }
+
+    /* Cabeçalho compacto: o nome do jogo já aparece na faixa da Hora da Segurança */
+    .game-header { flex-wrap: wrap; gap: 8px; padding: 8px 10px; }
+    .brand .subtitle { display: none; }
+    .brand h1 { font-size: 1.05rem; }
+    .logo-icon { font-size: 1.3rem; }
+    .header-controls {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 6px;
+    }
+    .difficulty-selector { flex: 1 1 100%; display: flex; align-items: center; gap: 6px; }
+    .difficulty-selector label { font-size: .72rem; white-space: nowrap; }
+    .custom-select { flex: 1 1 auto; min-width: 0; font-size: .78rem; padding: 6px 8px; }
+    .header-controls .btn { flex: 1 1 auto; font-size: .78rem; padding: 7px 10px; white-space: nowrap; }
+    .icon-btn { flex: 0 0 auto; }
+
+    /* O tabuleiro sobe para antes dos painéis */
+    .main-content { display: flex; flex-direction: column; gap: 8px; overflow: visible; }
+    .board-container { order: 1; }
+    .player-panel { order: 2; }
+    .machine-panel { order: 3; }
+
+    .board { width: min(92vw, 380px); height: min(92vw, 380px); }
+    .turn-banner { padding: 7px 10px; font-size: .78rem; }
+    .piece-info-bar { font-size: .72rem; padding: 6px 10px; }
+
+    /* Painéis viram faixas compactas com os números que importam */
+    .side-panel { max-height: none; padding: 8px; }
+    .panel-header p { display: none; }
+    .panel-header h2 { font-size: .95rem; }
+    .stats-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .stat-item { padding: 6px 4px; text-align: center; }
+    .stat-value { font-size: 1.1rem; }
+    .stat-label { font-size: .58rem; line-height: 1.15; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}

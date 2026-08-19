@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dama SST - Prevencionistas vs. Riscos Ambientais</title>
+    <meta name="description" content="Jogo de Dama educativo e animado: Enfrente os riscos do ambiente de trabalho com a equipe de Saúde, Segurança e Meio Ambiente (SST)!">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="hs.css?v=1">
+    <link rel="icon" href="logo.png">
+    <meta name="theme-color" content="#0b3d6b">
+    <script>
+      window.HS_CONFIG = {
+        treinamento: 'Dama SST · Prevenção contra Riscos',
+        titulo: 'Dama SST',
+        subtitulo: 'Prevenção contra riscos · gratuito'
+      };
+    </script>
+    <script src="hs.js?v=1"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Principal -->
+        <header class="game-header">
+            <div class="brand">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <h1>DAMA <span class="accent-sst">SST</span></h1>
+                    <p class="subtitle">Heróis da Prevenção vs. Riscos Ocupacionais</p>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <div class="difficulty-selector">
+                    <label for="difficulty">Nível da IA:</label>
+                    <select id="difficulty" class="custom-select">
+                        <option value="easy">Fácil (Iniciante)</option>
+                        <option value="medium" selected>Médio (Prevencionista)</option>
+                        <option value="hard">Impossível (Risco Crítico)</option>
+                    </select>
+                </div>
+
+                <button id="btn-audio" class="icon-btn" title="Alternar Som (Mute/Unmute)">
+                    <span id="audio-icon">🔊</span>
+                </button>
+
+                <button id="btn-codex" class="btn btn-secondary">
+                    <span>📖</span> Codex SST
+                </button>
+
+                <button id="btn-restart" class="btn btn-primary">
+                    <span>🔄</span> Novo Jogo
+                </button>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Painel do Jogador (SST) -->
+            <aside class="side-panel player-panel">
+                <div class="panel-header sst-theme">
+                    <div class="badge">JOGADOR</div>
+                    <h2>Equipe SST</h2>
+                    <p>Saúde, Segurança & Meio Ambiente</p>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="stat-value" id="sst-count">12</span>
+                        <span class="stat-label">Profissionais Ativos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="sst-captured">0</span>
+                        <span class="stat-label">Riscos Neutralizados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="sst-damas">0</span>
+                        <span class="stat-label">Super Prevencionistas</span>
+                    </div>
+                </div>
+
+                <div class="roster-preview">
+                    <h3>Peças em Campo:</h3>
+                    <ul class="roster-list">
+                        <li><span class="dot sst"></span> 💚 <strong>Técnico de Segurança</strong> (Capacete Verde)</li>
+                        <li><span class="dot sst"></span> 👩‍⚕️ <strong>Enfermeira do Trabalho</strong> (Pulso ECG)</li>
+                        <li><span class="dot sst"></span> 👩‍🌾 <strong>Analista Ambiental</strong> (Mulher & Planta)</li>
+                        <li><span class="dot sst"></span> 🛡️ <strong>Cipeiro</strong> (Escudo CIPA Cruz Verde)</li>
+                        <li><span class="dot sst"></span> 🚒 <strong>Brigadista de Emergência</strong> (Escudo & Fogo)</li>
+                        <li><span class="dot sst"></span> 👷‍♂️ <strong>Engenheiro de Segurança</strong> (Capacete Branco)</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Área Central do Tabuleiro -->
+            <section class="board-container">
+                <!-- Status do Turno -->
+                <div id="turn-banner" class="turn-banner sst-turn">
+                    <div class="turn-indicator-pulse"></div>
+                    <span id="turn-text">Sua Vez! Selecione um profissional para movimentar</span>
+                </div>
+
+                <!-- O Tabuleiro 8x8 -->
+                <div class="board-wrapper">
+                    <div id="board" class="board"></div>
+                </div>
+
+                <!-- Informações Rápidas da Peça Selecionada -->
+                <div id="piece-info-bar" class="piece-info-bar">
+                    <span id="piece-info-text">Clique em uma peça para ver seus detalhes e movimentos</span>
+                </div>
+            </section>
+
+            <!-- Painel da Máquina (Riscos) -->
+            <aside class="side-panel machine-panel">
+                <div class="panel-header risk-theme">
+                    <div class="badge danger">MÁQUINA / IA</div>
+                    <h2>Riscos Ambientais</h2>
+                    <p>Perigos Ocupacionais & Incidentes</p>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="stat-value" id="risk-count">12</span>
+                        <span class="stat-label">Riscos Ativos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="risk-captured">0</span>
+                        <span class="stat-label">Acidentes Gerados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="risk-damas">0</span>
+                        <span class="stat-label">Riscos Críticos</span>
+                    </div>
+                </div>
+
+                <div class="roster-preview">
+                    <h3>Ameaças em Campo:</h3>
+                    <ul class="roster-list">
+                        <li><span class="dot risk"></span> 🔥 <strong>Incêndio / Fogo</strong></li>
+                        <li><span class="dot risk"></span> ⚡ <strong>Raio / Choque Elétrico</strong></li>
+                        <li><span class="dot risk"></span> 🔌 <strong>Fio Desencapado</strong></li>
+                        <li><span class="dot risk"></span> ☣️ <strong>Vazamento Químico</strong></li>
+                        <li><span class="dot risk"></span> ⚠️ <strong>Queda de Altura</strong></li>
+                        <li><span class="dot risk"></span> ⚙️ <strong>Engrenagem Sem Proteção</strong></li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Modal Codex SST (Educativo & Detalhes das Peças) -->
+        <div id="codex-modal" class="modal-overlay hidden">
+            <div class="modal-card glass">
+                <button class="modal-close" id="btn-close-codex">&times;</button>
+                <div class="modal-header">
+                    <h2>📖 Codex de Segurança e Riscos</h2>
+                    <p>Aprenda a função de cada profissional e como conter os perigos no trabalho.</p>
+                </div>
+                <div class="modal-body" id="codex-content">
+                    <!-- Conteúdo dinâmico carregado por JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Fim de Jogo -->
+        <div id="gameover-modal" class="modal-overlay hidden">
+            <div class="modal-card glass text-center">
+                <div id="gameover-icon" class="big-icon">🏆</div>
+                <h2 id="gameover-title">Vitória da Segurança!</h2>
+                <p id="gameover-msg">Todos os riscos ambientais foram neutralizados com sucesso!</p>
+                
+                <div class="summary-stats">
+                    <div class="summary-box">
+                        <span id="final-captures">12</span>
+                        <small>Riscos Contidos</small>
+                    </div>
+                    <div class="summary-box">
+                        <span id="final-damas">0</span>
+                        <small>Super Prevencionistas</small>
+                    </div>
+                    <div class="summary-box">
+                        <span id="final-turns">0</span>
+                        <small>Jogadas</small>
+                    </div>
+                </div>
+
+                <button id="btn-play-again" class="btn btn-primary btn-large">
+                    <span>🎮</span> Jogar Novamente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Jogo -->
+    <script src="js/audio.js"></script>
+    <script src="js/pieces.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
