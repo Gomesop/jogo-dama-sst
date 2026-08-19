@@ -1,0 +1,249 @@
+{
+  "jogo": "Dama SST",
+  "rodada": "unica-30",
+  "data": "2026-08-19",
+  "criterio": "e-mail comercial publico verificado no proprio site; nenhuma empresa repetida das rodadas anteriores",
+  "envio": "pendente",
+  "empresas": [
+    {
+      "slug": "sq5",
+      "nome": "SQ5 Segurança + Qualidade",
+      "email": "contato@sq5.com.br",
+      "site": "https://www.sq5.com.br",
+      "segmento": "Consultoria em SST · Vinhedo/SP",
+      "link": "https://damas.horadaseguranca.com/?p=sq5"
+    },
+    {
+      "slug": "mna",
+      "nome": "MN&A Gestão Ocupacional",
+      "email": "contato@mnaconsultoria.com.br",
+      "site": "https://mnaconsultoria.com.br",
+      "segmento": "Consultoria em segurança do trabalho",
+      "link": "https://damas.horadaseguranca.com/?p=mna"
+    },
+    {
+      "slug": "camargodantas",
+      "nome": "Camargo Dantas",
+      "email": "comercial@camargodantas.com.br",
+      "site": "https://www.camargodantas.com.br",
+      "segmento": "Medicina e segurança do trabalho",
+      "link": "https://damas.horadaseguranca.com/?p=camargodantas"
+    },
+    {
+      "slug": "altaseg",
+      "nome": "Altaseg Engenharia",
+      "email": "contato@altasegrp.com.br",
+      "site": "https://www.altasegrp.com.br",
+      "segmento": "Gestão e segurança do trabalho",
+      "link": "https://damas.horadaseguranca.com/?p=altaseg"
+    },
+    {
+      "slug": "metta",
+      "nome": "Grupo Metta",
+      "email": "metta@grupometta.com.br",
+      "site": "https://www.grupometta.com.br",
+      "segmento": "Segurança do trabalho e meio ambiente",
+      "link": "https://damas.horadaseguranca.com/?p=metta"
+    },
+    {
+      "slug": "excelencia",
+      "nome": "Excelência Segurança do Trabalho",
+      "email": "comercial@excelenciaseguranca.com.br",
+      "site": "https://www.excelenciaseguranca.com.br",
+      "segmento": "Engenharia e medicina do trabalho · Curitiba/PR",
+      "link": "https://damas.horadaseguranca.com/?p=excelencia"
+    },
+    {
+      "slug": "valemed",
+      "nome": "ValeMed",
+      "email": "comercial@valemedbrasil.com.br",
+      "site": "https://www.valemedbrasil.com.br",
+      "segmento": "Saúde e segurança do trabalho · SC e PR",
+      "link": "https://damas.horadaseguranca.com/?p=valemed"
+    },
+    {
+      "slug": "rpferreira",
+      "nome": "RP Ferreira Consultoria",
+      "email": "contato@rpferreiraconsultoria.com.br",
+      "site": "https://rpferreiraconsultoria.com.br",
+      "segmento": "Treinamentos de NR e consultoria",
+      "link": "https://damas.horadaseguranca.com/?p=rpferreira"
+    },
+    {
+      "slug": "reviver",
+      "nome": "Grupo Reviver Saúde",
+      "email": "comercial@reviversaude.com.br",
+      "site": "https://www.reviversaude.com.br",
+      "segmento": "Medicina e segurança do trabalho · PR",
+      "link": "https://damas.horadaseguranca.com/?p=reviver"
+    },
+    {
+      "slug": "leal",
+      "nome": "Leal Consultoria Ambiental",
+      "email": "comercial@lealconsultoriaambiental.com.br",
+      "site": "https://www.lealconsultoriaambiental.com.br",
+      "segmento": "Licenciamento ambiental · BA",
+      "link": "https://damas.horadaseguranca.com/?p=leal"
+    },
+    {
+      "slug": "pernambucoambiental",
+      "nome": "Pernambuco Ambiental",
+      "email": "contato@pernambucoambiental.com.br",
+      "site": "https://pernambucoambiental.com.br",
+      "segmento": "Consultoria ambiental · PE",
+      "link": "https://damas.horadaseguranca.com/?p=pernambucoambiental"
+    },
+    {
+      "slug": "ambientalbahia",
+      "nome": "Ambiental Bahia",
+      "email": "contato@ambientalbahia.com",
+      "site": "https://ambientalbahia.com",
+      "segmento": "Assessoria ambiental · Porto Seguro/BA",
+      "link": "https://damas.horadaseguranca.com/?p=ambientalbahia"
+    },
+    {
+      "slug": "wes",
+      "nome": "WES Ergonomia",
+      "email": "comercial@wesergonomia.com.br",
+      "site": "https://www.wesergonomia.com.br",
+      "segmento": "Ergonomia e higiene ocupacional",
+      "link": "https://damas.horadaseguranca.com/?p=wes"
+    },
+    {
+      "slug": "highquality",
+      "nome": "High Quality",
+      "email": "comercial@highquality.com.br",
+      "site": "https://highquality.com.br",
+      "segmento": "Ergonomia e qualidade de vida · Barueri/SP",
+      "link": "https://damas.horadaseguranca.com/?p=highquality"
+    },
+    {
+      "slug": "biopreve",
+      "nome": "Biopreve",
+      "email": "contato@bioprevemt.com.br",
+      "site": "https://bioprevemt.com.br",
+      "segmento": "Treinamentos e brigada de incêndio · MT",
+      "link": "https://damas.horadaseguranca.com/?p=biopreve"
+    },
+    {
+      "slug": "tecnoseg",
+      "nome": "Tecnoseg",
+      "email": "vendas@consultoriatecnoseg.com.br",
+      "site": "https://www.consultoriatecnoseg.com.br",
+      "segmento": "Gestão de SST e treinamentos de NR",
+      "link": "https://damas.horadaseguranca.com/?p=tecnoseg"
+    },
+    {
+      "slug": "pms",
+      "nome": "PMS Consultoria",
+      "email": "contatopl@pmsconsultoria.com.br",
+      "site": "https://pmsconsultoria.com.br",
+      "segmento": "Treinamentos e equipamentos contra incêndio",
+      "link": "https://damas.horadaseguranca.com/?p=pms"
+    },
+    {
+      "slug": "cdo",
+      "nome": "CDO Ocupacional",
+      "email": "comercial@cdoocupacional.com.br",
+      "site": "https://www.cdoocupacional.com.br",
+      "segmento": "Medicina e segurança do trabalho · Londrina/PR",
+      "link": "https://damas.horadaseguranca.com/?p=cdo"
+    },
+    {
+      "slug": "sanmedi",
+      "nome": "SanMedi",
+      "email": "comercial@sanmedi.com.br",
+      "site": "https://www.sanmedi.com.br",
+      "segmento": "Saúde ocupacional e eSocial",
+      "link": "https://damas.horadaseguranca.com/?p=sanmedi"
+    },
+    {
+      "slug": "labortec",
+      "nome": "Labortec",
+      "email": "comercial@labortecconsultoria.com.br",
+      "site": "https://www.labortecconsultoria.com.br",
+      "segmento": "Consultoria em SST e exames",
+      "link": "https://damas.horadaseguranca.com/?p=labortec"
+    },
+    {
+      "slug": "medicinal",
+      "nome": "Medicinal",
+      "email": "comercial@medicinalrp.com.br",
+      "site": "https://www.medicinalrp.com.br",
+      "segmento": "Medicina do trabalho · Ribeirão Preto/SP",
+      "link": "https://damas.horadaseguranca.com/?p=medicinal"
+    },
+    {
+      "slug": "upper",
+      "nome": "Upper Medicina e Segurança do Trabalho",
+      "email": "contato@upper.med.br",
+      "site": "https://www.upper.med.br",
+      "segmento": "Medicina integrada e SST",
+      "link": "https://damas.horadaseguranca.com/?p=upper"
+    },
+    {
+      "slug": "ocupacional",
+      "nome": "Ocupacional",
+      "email": "contato@ocupacional.com.br",
+      "site": "https://ocupacional.com.br",
+      "segmento": "Saúde e segurança do trabalho · BH e Contagem/MG",
+      "link": "https://damas.horadaseguranca.com/?p=ocupacional"
+    },
+    {
+      "slug": "spepi",
+      "nome": "SP EPI",
+      "email": "contato@spepi.com.br",
+      "site": "https://www.spepi.com.br",
+      "segmento": "Equipamentos de proteção individual",
+      "link": "https://damas.horadaseguranca.com/?p=spepi"
+    },
+    {
+      "slug": "gruepi",
+      "nome": "GRUEPI",
+      "email": "contato@gruepi.com.br",
+      "site": "https://www.gruepi.com.br",
+      "segmento": "Soluções em EPI e proteção",
+      "link": "https://damas.horadaseguranca.com/?p=gruepi"
+    },
+    {
+      "slug": "visaoambiental",
+      "nome": "Visão Ambiental",
+      "email": "comercial@visaoambiental.com.br",
+      "site": "https://www.visaoambiental.com.br",
+      "segmento": "Consultoria e gestão ambiental",
+      "link": "https://damas.horadaseguranca.com/?p=visaoambiental"
+    },
+    {
+      "slug": "multisst",
+      "nome": "MultiSST",
+      "email": "comercial@multisst.com.br",
+      "site": "https://multisst.com.br",
+      "segmento": "Software de gestão de SST",
+      "link": "https://damas.horadaseguranca.com/?p=multisst"
+    },
+    {
+      "slug": "carneiropires",
+      "nome": "Carneiro Pires",
+      "email": "administrativo@carneiropires.com.br",
+      "site": "https://www.carneiropires.com.br",
+      "segmento": "Medicina e segurança do trabalho",
+      "link": "https://damas.horadaseguranca.com/?p=carneiropires"
+    },
+    {
+      "slug": "sso",
+      "nome": "SSO Ocupacional",
+      "email": "daniel@ssoocupacional.com.br",
+      "site": "https://www.ssoocupacional.com.br",
+      "segmento": "Laudos e saúde ocupacional · PR, RS e SC",
+      "link": "https://damas.horadaseguranca.com/?p=sso"
+    },
+    {
+      "slug": "philipin",
+      "nome": "Philipin Engenharia",
+      "email": "fabiano@philipinengenharia.com.br",
+      "site": "https://philipinengenharia.com.br",
+      "segmento": "Treinamentos de NR · SP",
+      "link": "https://damas.horadaseguranca.com/?p=philipin"
+    }
+  ]
+}
