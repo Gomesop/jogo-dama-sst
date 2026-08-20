@@ -426,8 +426,10 @@ body {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    width: clamp(340px, 50vh, 520px);
-    height: clamp(340px, 50vh, 520px);
+    /* A altura entra no calculo: dimensionar so pela largura fazia o tabuleiro
+       passar por baixo da faixa do rodape em janela larga e baixa. */
+    width: min(520px, 52vh, 42vw);
+    height: min(520px, 52vh, 42vw);
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid #020617;
@@ -866,17 +868,29 @@ body {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    /* Uma coluna: o tabuleiro sobe para antes dos painéis e estes viram faixas
+       compactas. Sem isso os painéis empilhados empurram o tabuleiro para
+       debaixo da faixa "Anuncie neste jogo" em janela larga e baixa. */
     .main-content {
-        grid-template-columns: 1fr;
-        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: visible;
+        min-height: 0;
     }
-    .side-panel {
-        max-height: 200px;
-    }
+    .board-container { order: 1; }
+    .player-panel { order: 2; }
+    .machine-panel { order: 3; }
+
+    .side-panel { max-height: none; padding: 10px; }
     .roster-preview { display: none; }
+    .panel-header p { display: none; }
+    .stats-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .stat-item { padding: 6px 4px; text-align: center; }
+
     .board {
-        width: min(85vw, 420px);
-        height: min(85vw, 420px);
+        width: min(85vw, 420px, 41vh);
+        height: min(85vw, 420px, 41vh);
     }
 }
 
@@ -909,7 +923,7 @@ body {
     .player-panel { order: 2; }
     .machine-panel { order: 3; }
 
-    .board { width: min(92vw, 380px); height: min(92vw, 380px); }
+    .board { width: min(92vw, 380px, 46vh); height: min(92vw, 380px, 46vh); }
     .turn-banner { padding: 7px 10px; font-size: .78rem; }
     .piece-info-bar { font-size: .72rem; padding: 6px 10px; }
 
